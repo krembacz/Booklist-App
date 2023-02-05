@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './AppContainerStyle.css'
-import AddBookButton from './AddBook';
-import BookCards from './BookCards';
+import BookContext from './BookContext';
 
 export default function AppContainer() {
     return (
         <div className="app-bg">
             <div className="app">
                 <h2> My Books </h2>
-                <AddBookButton />
-                <BookCards />
+                <BookContext />
             </div>
         </div>
     );

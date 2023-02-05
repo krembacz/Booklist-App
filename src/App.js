@@ -2,11 +2,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { useEffect, useState } from 'react';
 import AppContainer from './components/AppContainer';
+import BookCards from './components/BookCards';
 import BookContext from './components/BookContext';
 //save https://63dc8ec0367aa5a7a4fddf12.mockapi.io/students?fbclid=IwAR3VXtalCJlzPDyoGAa-lRzK3bS1ye76UIQ9REIkBU57zoPrEwgUMipA_hY
 
 export default function App() {
-  const [bookList, setBookList] = useState({});
+/*   const [bookList, setBookList] = useState({});
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const API = "https://63dc7fa52308e3e319e89c0f.mockapi.io/books";
@@ -72,12 +73,11 @@ export default function App() {
       { method: "DELETE" }
     )
     await console.log("Book has been deleted");
-  }
+  } */
 
   return (
     <div className="App">
       <AppContainer />
-      <BookContext />
     </div>
   );
 }

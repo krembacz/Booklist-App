@@ -2,44 +2,28 @@ import './BookCardsStyle.css';
 import React from 'react';
 import { FaEdit } from 'react-icons/fa';
 import { FaTrash } from 'react-icons/fa';
-import Modal from 'react-bootstrap/Modal';
 
-export default function BookCards({bookList}) {
+export default function BookCards({ bookList, deleteBook }) {
     return (
         <div>
             {bookList.map((book) => (
-            <div className="individual">
-                <div className="cardHeaderInfo">
-                    <span className="title"> </span>
-                    <p>Nysha</p>
-                </div>
-                <p>Author: {book.name} </p>
+                <div className="individual" key={book.id}>
+                    <div className="cardHeaderInfo">
+                        <span className="title"> {book.title} </span>
+                        <p>{book.contributor}</p>
+                    </div>
 
-                <span>12/20/2022 </span>
-                <p> Placeholder Text </p>
-                <span className="options">
-                    <FaEdit data-bs-toggle="modal" data-bs-target="#form" size={20} />
-                    <FaTrash size={20} />
-                </span>
-            </div>
-            ))} 
+                    <p>Author: {book.author} </p>
+
+                    <span> {book.date} </span>
+                    <p> {book.review} </p>
+                    <span className="options">
+                        <FaEdit data-bs-toggle="modal" data-bs-target="#form" size={20} className="click" />
+                        <FaTrash size={20} onClick={() => deleteBook(book.id)} className="click" />
+                    </span>
+                </div>
+            ))}
         </div>
     );
 }
 
-/* <div className="individual">
-<div className="cardHeaderInfo">
-    <span className="title">The Glass Castle </span>
-    <p>Nysha</p>
-</div>
-<p>Author: Jeanette Walls</p>
-
-<span>12/20/2022 </span>
-<p>Completed. I really loved the immersive storytelling. The story is furthered by the fact
-    that it is a deeply personal and true story. A eye-opening perspective of rural Arizona in the
-    1960-70's. </p>
-<span class="options">
-    <FaEdit data-bs-toggle="modal" data-bs-target="#form" size={20} />
-    <FaTrash size={20} />
-</span>
-</div> */
