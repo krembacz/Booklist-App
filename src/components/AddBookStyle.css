@@ -79,3 +79,9 @@ button .btn-close {
     width: 1rem; 
     height: 1rem; 
 }
+
+.submit-btn {
+    color: white; 
+    background-color: #c42e2e;
+    outline: hidden; 
+}

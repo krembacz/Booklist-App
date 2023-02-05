@@ -36,13 +36,6 @@ export default function BookContext() {
     //onclick, creates new object with input data and sets it into state and API 
 
     const addBookClick = async (newBook) => {
-/*         const newBook = {
-            title: "Harry Potter",
-            contributor: "Jovan",
-            author: "JK Rowling",
-            date: "2/4/2023",
-            review: "Pretty magical"
-        } */
 
         await setBookList(bookList.concat(newBook))
         await fetch(API, {
@@ -55,24 +48,24 @@ export default function BookContext() {
 
 
     //targets specified data and pushes the change to API 
-    const editBook = async () => {
-        const changedBook = {
-            title: "The Diary of Anne Frank",
-            contributor: "Kristina",
-            author: "Anne Frank",
-            date: "2/4/23",
-            review: "Sombering and vivid"
-        }
-
-        const resourceID = 3;
+    const editBook = async (id) => {
+        /*         const changedBook = {
+                    title: "The Diary of Anne Frank",
+                    contributor: "Kristina",
+                    author: "Anne Frank",
+                    date: "2/4/23",
+                    review: "Sombering and vivid"
+                } */
+        let resourceID = (id);
         await fetch(API + "/" + resourceID, {
             method: "PUT",
             headers: { "content-Type": "application/json" },
-            body: JSON.stringify(changedBook)
+            body: JSON.stringify()
         })
         await console.log(bookList);
         getBooks();
     };
+    //changedbook
 
 
     //determines item by id and deletes from API 
@@ -91,7 +84,7 @@ export default function BookContext() {
     return (
         <div>
             <AddBookButton addBookClick={addBookClick} />
-            <BookCards bookList={bookList} deleteBook={deleteBook} />
+            <BookCards bookList={bookList} deleteBook={deleteBook} editBook={editBook} />
         </div>
     );
 }
@@ -116,7 +109,7 @@ export default function BookContext() {
                 setLoading(false);
             });
     }; */
-/* 
+/*
     if (isLoading) {
         return <div> Loading... </div>
     } */
@@ -137,3 +130,6 @@ export default function BookContext() {
        })
        console.log(bookList);
    } */
+
+
+   //HELLO SAVING

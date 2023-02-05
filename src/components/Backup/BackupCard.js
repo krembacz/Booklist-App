@@ -3,8 +3,7 @@ import React from 'react';
 import { FaEdit } from 'react-icons/fa';
 import { FaTrash } from 'react-icons/fa';
 
-export default function BookCards({ bookList, deleteBook, editBook }) {
-
+export default function BookCards({ bookList, deleteBook }) {
     return (
         <div>
             {bookList.map((book) => (
