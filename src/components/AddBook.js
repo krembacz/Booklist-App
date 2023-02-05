@@ -5,11 +5,15 @@ import Modal from 'react-bootstrap/Modal';
 import { FaPlusCircle } from 'react-icons/fa';
 import Form from 'react-bootstrap/Form';
 
+//passed addBookClick function down as a prop from BookContext 
 export default function AddBookButton({ addBookClick }) {
+
+    //declaring our variables and use States 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    //destructuring the item/text input fields to be updated
     const [title, setTitle] = useState("");
     const [contributor, setContributor] = useState("");
     const [author, setAuthor] = useState("");
@@ -17,6 +21,7 @@ export default function AddBookButton({ addBookClick }) {
     const [review, setReview] = useState("");
     const API = "https://63dc7fa52308e3e319e89c0f.mockapi.io/books";
 
+    //when submitted, creates an object called new book with specified attributes 
     const handleSubmit = () => {
         const newBook = { title, contributor, author, date, review };
         addBookClick(newBook);
@@ -24,6 +29,7 @@ export default function AddBookButton({ addBookClick }) {
         clearForms();
     }
 
+    //clears the forms of text
     const clearForms = () => {
         setTitle("");
         setContributor("");
@@ -32,6 +38,7 @@ export default function AddBookButton({ addBookClick }) {
         setReview("");
     }
 
+    //everything is in a modal that will pop up when a book is to be added 
     return (
         <div className="center">
             <Button id="new-book" onClick={handleShow}>
@@ -120,59 +127,3 @@ export default function AddBookButton({ addBookClick }) {
         </div >
     );
 }
-
-//<Form onSubmit={handleSubmit}></Form>
-
-/* { <Button id="new-book" onClick={handleShow}>
-<div>Add New book</div>
-<FaPlusCircle className="add" />
-</Button>
-
-<Modal show={show} onHide={handleClose}>
-<Modal.Header closeButton>
-    <Modal.Title> Add New Book </Modal.Title>
-</Modal.Header>
-<Modal.Body>
-    <Form>
-
-        <Form.Group className="mb-3" controlId="formTitleInpus">
-            <Form.Label className="mp">Book Title </Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
-
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="usernameInput">
-            <Form.Label className="mp">Contributed By</Form.Label>
-            <Form.Control type="username" placeholder="Your name" />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formAuthorInput">
-            <Form.Label className="mp">Author</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
-        </Form.Group>
-
-        <Form.Group controlId="mb-3">
-            <Form.Label className="mp"> Date Added</Form.Label>
-            <Form.Control type="date" name="formDateAddedInput" />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea">
-            <Form.Label className="mp extra"> Notes </Form.Label>
-            <Form.Control as="textarea" cols={10} rows={4} />
-        </Form.Group>
-
-    </Form>
-</Modal.Body>
-
-<Modal.Footer>
-    <Button variant="secondary" onClick={handleClose}>
-        Close
-    </Button>
-    <Button variant="primary" onClick={() => {
-        handleClose();
-        onCreateClick();
-    }}>
-        Save Changes
-    </Button>
-</Modal.Footer>
-</Modal> }*/

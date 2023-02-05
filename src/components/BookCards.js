@@ -4,9 +4,9 @@ import { FaEdit } from 'react-icons/fa';
 import { FaTrash } from 'react-icons/fa';
 
 export default function BookCards({ bookList, deleteBook, editBook }) {
-
     return (
-        <div>
+       //mapping over the booklist brought in as a prop and assigning each item name as book
+       <div>
             {bookList.map((book) => (
                 <div className="individual" key={book.id}>
                     <div className="cardHeaderInfo">

@@ -47,7 +47,7 @@ export default function BookContext() {
     };
 
 
-    //targets specified data and pushes the change to API 
+    //targets specified data and pushes the change to API - didn't get this done but dfoes work when hard-coded 
     const editBook = async (id) => {
         /*         const changedBook = {
                     title: "The Diary of Anne Frank",
@@ -78,7 +78,6 @@ export default function BookContext() {
         await console.log("Book has been deleted");
         getBooks();
     };
-
     console.log(bookList);
 
     return (
@@ -88,48 +87,3 @@ export default function BookContext() {
         </div>
     );
 }
-/*
-<button onClick={onCreateClick} className="btn btn-info"> BOOKS </button>
-<button onClick={onReadOneClick} className="btn btn-success">GET </button>
-<button onClick={updateBook} className="btn btn-warning">UPDATE </button>
-<button onClick={deleteBook} className="btn btn-danger">DELETE </button> */
-
-//<AddBookButton />
-
-/*     useEffect(() => {
-        getBooks()
-    }, [])
-
-    function getBooks() {
-        fetch(API)
-            .then((data) => data.json())
-            .then((data) => {
-                setBookList(data)
-                console.log(data);
-                setLoading(false);
-            });
-    }; */
-/*
-    if (isLoading) {
-        return <div> Loading... </div>
-    } */
-
-/*    const onCreateClick = () => {
-       const newBook = {
-           title: "East of Eden",
-           author: "John Steinbeck",
-           date: "2/3/23",
-           Review: "Solid Book"
-       }
-
-       setBookList(bookList.concat(newBook))
-       fetch(API, {
-           method: "POST",
-           headers: { "Content-type": "application/json" },
-           body: JSON.stringify(newBook)
-       })
-       console.log(bookList);
-   } */
-
-
-   //HELLO SAVING
